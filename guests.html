@@ -155,14 +155,20 @@
             margin: 4px 0;
         }
 
-        /* Grid layout */
+        /* Grid layout - UPDATED */
         .case-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr auto;
             gap: clamp(0.6rem, 1.5vh, 1.2rem);
             flex: 1;
             min-height: 0;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.4rem, 1vh, 0.8rem);
+            height: 100%;
         }
 
         .network-image {
@@ -171,29 +177,48 @@
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 4px;
-            min-height: 50px;
+            min-height: 80px;
+            flex: 1;
         }
 
         .abstract-image {
-            grid-row: span 2;
             background-color: #6b7280;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 4px;
-            min-height: 100px;
+            height: 100%;
+            min-height: 150px;
         }
 
-        .case-description {
+        /* Coming Soon Button - UPDATED */
+        .coming-soon-btn {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: transparent;
+            border: 2px solid #b74b4b;
+            border-radius: 4rem;
             font-family: 'DM Mono', monospace;
-            font-size: clamp(0.9rem, 1.5vh, 1.2rem);
-            color: #000000;
-            line-height: 1.5;
-            letter-spacing: 0.01em;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+            font-size: clamp(0.8rem, 1.3vh, 1rem);
+            color: #b74b4b;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.1rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .coming-soon-btn:hover {
+            background-color: #b74b4b;
+            color: black;
+            transform: scale(1.02);
+            box-shadow: 0 0 15px #b74b4b;
+        }
+
+        .coming-soon-btn:active {
+            transform: scale(0.98);
         }
 
         .week-badge {
@@ -452,9 +477,13 @@
                 font-size: clamp(1.4rem, 2.5vh, 1.6rem);
             }
 
-            .case-description {
-                font-size: clamp(1rem, 1.8vh, 1.1rem);
-                -webkit-line-clamp: 2;
+            .left-column {
+                gap: 0.4rem;
+            }
+
+            .coming-soon-btn {
+                font-size: clamp(0.75rem, 1.3vh, 0.9rem);
+                padding: 0.5rem 0.8rem;
             }
             
             .case-file.active {
@@ -477,9 +506,9 @@
                 font-size: 1.3rem;
             }
 
-            .case-description {
-                font-size: 0.85rem;
-                -webkit-line-clamp: 2;
+            .coming-soon-btn {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.6rem;
             }
 
             .week-badge {
@@ -528,10 +557,15 @@
                 font-size: 1.3rem;
                 margin-top: 2px;
             }
+
+            .left-column {
+                gap: 0.3rem;
+            }
             
-            .case-description {
-                -webkit-line-clamp: 2;
-                font-size: 0.85rem;
+            .coming-soon-btn {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.5rem;
+                margin-top: 0;
             }
             
             .week-badge {
@@ -588,6 +622,11 @@
             .back-btn {
                 font-size: 1.3rem;
                 padding: 0.9rem 1.5rem;
+            }
+            
+            .coming-soon-btn {
+                font-size: 0.65rem;
+                padding: 0.25rem 0.4rem;
             }
         }
     </style>
@@ -651,9 +690,11 @@
                         <div class="case-title">??NAME??</div>
                         <div class="divider"></div>
                         <div class="case-grid">
-                            <div class="network-image" style="background-image: url('z.jpg');"></div>
+                            <div class="left-column">
+                                <div class="network-image" style="background-image: url('z.jpg');"></div>
+                                <a href="#" class="coming-soon-btn">Coming Soon</a>
+                            </div>
                             <div class="abstract-image" style="background-image: url('y.jpg');"></div>
-                            <div class="case-description">??VLOG DESCRIPTION??</div>
                         </div>
                         <div class="week-badge">??PROFESSION??</div>
                     </div>
@@ -679,9 +720,11 @@
                         <div class="case-title">??NAME??</div>
                         <div class="divider"></div>
                         <div class="case-grid">
-                            <div class="network-image" style="background-image: url('z.jpg');"></div>
+                            <div class="left-column">
+                                <div class="network-image" style="background-image: url('z.jpg');"></div>
+                                <a href="#" class="coming-soon-btn">Coming Soon</a>
+                            </div>
                             <div class="abstract-image" style="background-image: url('y.jpg');"></div>
-                            <div class="case-description">??VLOG DESCRIPTION??</div>
                         </div>
                         <div class="week-badge">??PROFESSION??</div>
                     </div>
@@ -707,9 +750,11 @@
                         <div class="case-title">??NAME??</div>
                         <div class="divider"></div>
                         <div class="case-grid">
-                            <div class="network-image" style="background-image: url('z.jpg');"></div>
+                            <div class="left-column">
+                                <div class="network-image" style="background-image: url('z.jpg');"></div>
+                                <a href="#" class="coming-soon-btn">Coming Soon</a>
+                            </div>
                             <div class="abstract-image" style="background-image: url('y.jpg');"></div>
-                            <div class="case-description">??VLOG DESCRIPTION??</div>
                         </div>
                         <div class="week-badge">??PROFESSION??</div>
                     </div>
