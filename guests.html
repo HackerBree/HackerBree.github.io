@@ -805,17 +805,19 @@
                     <span>Back to Projects</span>
                 </a>
                 
-                <!-- Navigation buttons -->
+                <!-- Navigation buttons - ICONS STAY THE SAME, FUNCTIONS SWAPPED -->
+                <!-- LEFT button (DOWN arrow) = NEXT case -->
+                <!-- RIGHT button (UP arrow) = PREVIOUS case -->
                 <div class="nav-buttons">
-                    <button class="nav-btn" id="prevBtnBottom" disabled>
+                    <button class="nav-btn" id="prevBtnBottom">
                         <svg viewBox="0 0 24 24">
-                            <path d="M12 19V5M5 12l7 7 7-7"/> <!-- Down arrow (now on left) -->
+                            <path d="M12 19V5M5 12l7 7 7-7"/> <!-- DOWN arrow on LEFT = NEXT case -->
                         </svg>
                     </button>
                     
                     <button class="nav-btn" id="nextBtnBottom">
                         <svg viewBox="0 0 24 24">
-                            <path d="M12 5v14M5 12l7-7 7 7"/> <!-- Up arrow (now on right) -->
+                            <path d="M12 5v14M5 12l7-7 7 7"/> <!-- UP arrow on RIGHT = PREVIOUS case -->
                         </svg>
                     </button>
                 </div>
@@ -954,29 +956,29 @@
             if (caseCounter) caseCounter.textContent = `${index + 1}/${totalCases}`;
 
             // Update button states
-            if (prevBtnBottom) prevBtnBottom.disabled = index === 0;
-            if (nextBtnBottom) nextBtnBottom.disabled = index === totalCases - 1;
+            if (prevBtnBottom) prevBtnBottom.disabled = index === totalCases - 1; // Disable when at last case (index 2)
+            if (nextBtnBottom) nextBtnBottom.disabled = index === 0; // Disable when at first case (index 0)
         }
 
-        // Event listeners for buttons - WITH MENU SOUND
+        // SWAPPED FUNCTIONS - ICONS STAY THE SAME
+        // LEFT button (DOWN arrow) = NEXT case (increase index)
         const handlePrevClick = () => {
-            // Play menu.mp3 sound
-            menuSound.currentTime = 0;
-            menuSound.play().catch(() => {});
-            
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateStack(currentIndex);
-            }
-        };
-
-        const handleNextClick = () => {
-            // Play menu.mp3 sound
             menuSound.currentTime = 0;
             menuSound.play().catch(() => {});
             
             if (currentIndex < totalCases - 1) {
                 currentIndex++;
+                updateStack(currentIndex);
+            }
+        };
+
+        // RIGHT button (UP arrow) = PREVIOUS case (decrease index)
+        const handleNextClick = () => {
+            menuSound.currentTime = 0;
+            menuSound.play().catch(() => {});
+            
+            if (currentIndex > 0) {
+                currentIndex--;
                 updateStack(currentIndex);
             }
         };
@@ -994,12 +996,11 @@
             });
         });
 
-        // Keyboard navigation - WITH MENU SOUND
+        // KEYBOARD NAVIGATION - MATCHING THE SWAPPED BUTTON LOGIC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowUp') {
                 e.preventDefault();
-                if (currentIndex > 0) {
-                    // Play menu.mp3 sound
+                if (currentIndex > 0) { // UP arrow = PREVIOUS case (like RIGHT button now)
                     menuSound.currentTime = 0;
                     menuSound.play().catch(() => {});
                     
@@ -1008,8 +1009,7 @@
                 }
             } else if (e.key === 'ArrowDown') {
                 e.preventDefault();
-                if (currentIndex < totalCases - 1) {
-                    // Play menu.mp3 sound
+                if (currentIndex < totalCases - 1) { // DOWN arrow = NEXT case (like LEFT button now)
                     menuSound.currentTime = 0;
                     menuSound.play().catch(() => {});
                     
