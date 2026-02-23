@@ -209,76 +209,6 @@
             text-overflow: ellipsis;
         }
 
-        /* Gradient styles */
-        .network-image {
-            background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
-            opacity: 0.9;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .network-image::after {
-            content: "NETWORK";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: 'DM Mono', monospace;
-            font-size: clamp(0.8rem, 1.2vh, 1rem);
-            opacity: 0.5;
-            white-space: nowrap;
-        }
-
-        .abstract-image {
-            background: linear-gradient(45deg, #a8c0ff 0%, #3f2b96 100%);
-            opacity: 0.9;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .abstract-image::after {
-            content: "ABSTRACT";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-90deg);
-            color: white;
-            font-family: 'DM Mono', monospace;
-            font-size: clamp(0.8rem, 1.2vh, 1rem);
-            opacity: 0.5;
-            white-space: nowrap;
-        }
-
-        /* Custom labels for each case */
-        .case-file[data-index="0"] .network-image::after {
-            content: "PANDA";
-        }
-
-        .case-file[data-index="0"] .abstract-image::after {
-            content: "CT AFFAIRS";
-            transform: translate(-50%, -50%) rotate(-90deg);
-            font-size: clamp(0.7rem, 1vh, 0.9rem);
-        }
-
-        .case-file[data-index="1"] .network-image::after {
-            content: "APT29";
-        }
-
-        .case-file[data-index="1"] .abstract-image::after {
-            content: "SUPPLY";
-            transform: translate(-50%, -50%) rotate(-90deg);
-        }
-
-        .case-file[data-index="2"] .network-image::after {
-            content: "RANSOM";
-        }
-
-        .case-file[data-index="2"] .abstract-image::after {
-            content: "UNI";
-            transform: translate(-50%, -50%) rotate(-90deg);
-        }
-
         /* Arrow controls - HIDE THE TEXT ELEMENTS */
         .arrow-controls {
             display: flex;
@@ -721,8 +651,8 @@
                         <div class="case-title">??NAME??</div>
                         <div class="divider"></div>
                         <div class="case-grid">
-                            <div class="network-image"></div>
-                            <div class="abstract-image"></div>
+                            <div class="network-image" style="background-image: url('z.jpg');"></div>
+                            <div class="abstract-image" style="background-image: url('y.jpg');"></div>
                             <div class="case-description">??VLOG DESCRIPTION??</div>
                         </div>
                         <div class="week-badge">??PROFESSION??</div>
@@ -749,8 +679,8 @@
                         <div class="case-title">??NAME??</div>
                         <div class="divider"></div>
                         <div class="case-grid">
-                            <div class="network-image"></div>
-                            <div class="abstract-image"></div>
+                            <div class="network-image" style="background-image: url('z.jpg');"></div>
+                            <div class="abstract-image" style="background-image: url('y.jpg');"></div>
                             <div class="case-description">??VLOG DESCRIPTION??</div>
                         </div>
                         <div class="week-badge">??PROFESSION??</div>
@@ -777,8 +707,8 @@
                         <div class="case-title">??NAME??</div>
                         <div class="divider"></div>
                         <div class="case-grid">
-                            <div class="network-image"></div>
-                            <div class="abstract-image"></div>
+                            <div class="network-image" style="background-image: url('z.jpg');"></div>
+                            <div class="abstract-image" style="background-image: url('y.jpg');"></div>
                             <div class="case-description">??VLOG DESCRIPTION??</div>
                         </div>
                         <div class="week-badge">??PROFESSION??</div>
